@@ -1,0 +1,60 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Policy Assignments</h3>
+        <label>{{detail.id}}</label>
+    </div>
+    <div class="modal-body">
+        <form name="msForm" ng-submit="submit()" class="form-horizontal" novalidate>
+ 
+            <div class="form-group  has-feedback">
+                <label class="col-sm-1 control-label">Scope</label>
+                <span class="nullable">
+                    <select class="form-control" ng-model="pa.properties.scope" ng-options="scope.id as scope.name for scope in scopes" required="">
+                        <option value="">--Please Select--</option>
+                    </select>
+                </span>
+
+                <button class="btn btn-primary col-sm-1 btn-sm" ng-disabled="pa.properties.scope==null" ng-click="addassignment()">Add</button>
+            </div>
+           
+
+        </form>
+     
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Scope
+                        </th>
+                        <th>
+                           
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="a in assignments">
+
+                        <td>
+                            {{a.name}}
+                        </td>
+                        <td>
+                            {{a.properties.scope}}
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" ng-click="deleteassignment(a)">Delete</button>
+                        </td>
+               
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+       
+        <button class="btn btn-warning" ng-click="cancel()">Close</button>
+    </div>
+</div>

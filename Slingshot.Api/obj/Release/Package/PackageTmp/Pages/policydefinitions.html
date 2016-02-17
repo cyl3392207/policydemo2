@@ -1,0 +1,70 @@
+﻿<div class="col-sm-9 col-sm-offset-3 col-md-40 col-md-offset-2 main">
+
+    <p ng-show="loadingpolicy" class="bg-info">Loading Policy Definitions ....</p>
+    <p ng-show="!loadingpolicy&&loadingassignments"class="bg-info">Loading Assignments...</p>
+    <p ng-show="!loadingpolicy&&loadinglogs" class="bg-info">Loading Logs...</p>
+  
+    <div class="col-sm-offset-10">
+        <button type="button" class="btn btn-primary btn-sm" ng-click="addPolicy(p)">Add Policy</button>
+        <button type="button" class="btn btn-success btn-sm" ng-click="gallery()">Policy Gallery</button>
+    </div>
+    <br />
+    <div class="table-responsive" ng-repeat="s in subs">
+       <h4>{{s.displayName}} - {{s.subscriptionId}}</h4>
+        <p ng-show="policies[s.subscriptionId].length == 0" class="bg-info"> You have no policy under this subscription</p>
+    <div class="table-responsive">
+        <table ng-show="policies[s.subscriptionId].length>0" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Number of Assignments
+                    </th>
+                    <th>
+                        Number of Violations
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="p in policies[s.subscriptionId]">
+
+                    <td>
+                        {{p.name}}
+                    </td>
+
+                    <td>
+                        {{p.properties.policyType}}
+                    </td>
+                    <td>
+                        {{p.properties.description}}
+                    </td>
+                    <td>
+                        {{assignmentnumbers[p.id]}}
+                    </td>
+                    <td>
+                        {{violationnumbers[p.id]}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewJson(p)">View</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewAssignments(p)">Assignments</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewLogs(p)">Audit Logs</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="deletepd(p)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+
+</div>

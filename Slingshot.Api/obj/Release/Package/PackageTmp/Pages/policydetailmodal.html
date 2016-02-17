@@ -1,0 +1,14 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Policy Rules</h3>
+        <label>{{detail.id}}</label>
+    </div>
+    <div class="modal-body">
+     
+      <pre>{{detail.properties.policyRule | json:true}}</pre>
+    </div>
+    <div class="modal-footer">
+       
+        <button class="btn btn-warning" ng-click="cancel()">Close</button>
+    </div>
+</div>

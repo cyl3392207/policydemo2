@@ -1,0 +1,32 @@
+﻿/* Screen Only */
+@media screen {
+ .noprint {display:block !important;}
+ .noshow {display:none !important;}
+
+}
+
+/* Print Only */
+@media print {
+ .noprint {display:none !important;}
+ .noshow {display:block !important;}
+  .col-sm-9, .col-sm-offset-3, .col-md-40,.col-md-offset-2, .main{
+     margin-left: 0;
+     width:100%
+ }
+
+ thead {display:  table-header-group;}
+
+ .noscroll {overflow: visible;}
+
+ .nopagebreak{
+     page-break-inside: avoid
+ }
+ table{
+     font-size:10px
+ }
+ body{
+     padding-top:10px
+ }
+
+}
+

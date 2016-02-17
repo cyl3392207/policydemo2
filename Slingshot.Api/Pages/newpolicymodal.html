@@ -1,0 +1,53 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Add New policy</h3>
+        <label>{{detail.id}}</label>
+    </div>
+    <div class="modal-body">
+        <form name="msForm" ng-submit="submit()" class="form-horizontal" novalidate>
+            <div class="form-group ">
+              
+                    <p class="bg-info">Subscriptions</p>
+              
+               
+                <table  class="table table-striped" >
+                    <tr ng-repeat="sub in subs">
+                        <td><input type="checkbox" ng-model="sub.selected" /></td>
+                        <td>{{ sub.displayName}}</td> 
+                    </tr>
+                </table>
+                
+
+            </div>
+
+            <div class="form-group  has-feedback">
+                <label class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-5">
+                    <input type="text"  class="form-control" ng-model="policy.name" enter-focus-next/>
+                </div>
+            </div>
+            <div class="form-group  has-feedback">
+                <label class="col-sm-2 control-label">DisplayName</label>
+                <div class="col-sm-5">
+                    <input type="text"  class="form-control" ng-model="policy.properties.displayName" enter-focus-next/>
+                </div>
+            </div>
+            <div class="form-group  has-feedback">
+                <label class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="policy.properties.description" enter-focus-next/>
+                </div>
+            </div>
+            <textarea class="form-control" rows="20" ng-model="policy.properties.policyRule">
+
+            </textarea>
+           
+        </form>
+
+       
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Submit</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+</div>

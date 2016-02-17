@@ -1,0 +1,64 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">Policy Rules</h3>
+        <label>{{detail.id}}</label>
+    </div>
+    <div class="modal-body">
+     
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Caller
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                            correlationId
+                        </th>
+                        <th>
+                            operationId
+                        </th>
+                        <th>
+                            resourceId
+                        </th>
+                        <th>
+                            error message
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="l in detail">
+
+                        <td>
+                            {{l.caller}}
+                        </td>
+
+                        <td>
+                            {{l.submissionTimestamp}}
+                        </td>
+                        <td>
+                            {{l.correlationId}}
+                        </td>
+                        <td>
+                            {{l.operationId}}
+                        </td>
+                        <td>
+                            {{l.resourceId}}
+                        </td>
+                        <td>
+                            {{l.properties.statusMessage}}
+                        </td>
+                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+       
+        <button class="btn btn-warning" ng-click="cancel()">Close</button>
+    </div>
+</div>
