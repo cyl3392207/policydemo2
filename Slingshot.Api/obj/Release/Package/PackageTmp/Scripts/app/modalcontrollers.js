@@ -42,7 +42,7 @@ controller('PolicyAssignmentModal', ['$scope', '$modalInstance', 'detail','RestS
         })
     }
     $scope.deleteassignment = function (p) {
-        RestService.getclient('pa').delete({ id: p.id.substring(15, p.length), name: p.name }, function (data) {
+        RestService.getclient('pa').delete({ id: p.properties.scope.substring(15, p.properties.scope.length), name: p.name }, function (data) {
             $scope.assignments.pop(p)
         })
     }
