@@ -20,12 +20,12 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
             RestService.getclient('pd').query({ id: sub.subscriptionId }, function (items) {
                 $scope.loadingpolcy = false
                 items.value.forEach(function (item) {
-                    if (item.properties.policyType == "Custom") {
+                  
                         $scope.assignmentnumbers[item.id] = 0
                         $scope.violationnumbers[item.id] = 0
                         $scope.events[item.id] = []
                         $scope.policies[sub.subscriptionId].push(item)
-                    }
+                
 
                 })
 
