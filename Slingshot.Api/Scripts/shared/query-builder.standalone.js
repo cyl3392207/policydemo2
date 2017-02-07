@@ -307,7 +307,6 @@
             });
 
             this.$el.triggerHandler(event, Array.prototype.slice.call(arguments, 2));
-
             return event.value;
         },
 
@@ -3994,6 +3993,7 @@
                 var $group = $(this).closest(Selectors.group_container);
                 var group = Model($group);
                 group.not = !group.not;
+                self.$el.trigger('AfterChangeNot.queryBuilder')
             });
 
             self.model.on('update', function (e, node, field) {

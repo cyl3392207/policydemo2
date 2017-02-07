@@ -10,10 +10,10 @@
     <div id="builder"></div>
    
     <div class="btn-group">
-        <button id="btn-get" name="btn-get" onclick="a()" class="btn btn-primary parse-json" data-target="plugins">Generate Policy Definition</button>
+        <button id="btn-get" name="btn-get"  class="btn btn-primary parse-json" data-target="plugins">Generate Policy Definition</button>
     </div>
     <div>
-        <pre>{{generatedpolicy() | json:true}}</pre>
+        <pre>{{ generatedpolicy| json:true}}</pre>
     </div>
 
 </div>
