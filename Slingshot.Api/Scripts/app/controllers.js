@@ -146,7 +146,7 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
 
 }]).controller('PolicyBuilderCtrl', ['$scope', '$modal', 'RestService','$location','$filter', function ($scope, $modal, RestService, $location,$filter) {
     $('#builder').queryBuilder({
-        plugins: ['not-group', 'sortable'],
+        plugins: ['not-group'],
         filters: filters
     });
     $scope.generatedpolicy = {}
