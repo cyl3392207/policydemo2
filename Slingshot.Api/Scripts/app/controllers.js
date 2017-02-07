@@ -143,5 +143,11 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
 
         })
     }
+    $scope.generatedpolicy = function () {
+        var result = $('#builder').queryBuilder('getRules');
 
+        if (!$.isEmptyObject(result)) {
+            return JSON.stringify(convertToPolicyDefnitionRule(result), null, 2);
+        }
+    }
 }])

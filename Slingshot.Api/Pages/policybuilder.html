@@ -4,7 +4,7 @@
 <script src="Scripts/shared/moment.min.js"></script>
 <script src="Scripts/shared/query-builder.standalone.js"></script>
 <script src="Scripts/app/policybuilder.js"></script>
-<div class="col-sm-9 col-sm-offset-3 col-md-40 col-md-offset-2 main">
+<div class="col-sm-12 main">
     <meta charset="utf-8" />
   
     <div id="builder"></div>
@@ -12,6 +12,8 @@
     <div class="btn-group">
         <button id="btn-get" name="btn-get" onclick="a()" class="btn btn-primary parse-json" data-target="plugins">Generate Policy Definition</button>
     </div>
-
+    <div>
+        <pre>{{generatedpolicy() | json:true}}</pre>
+    </div>
 
 </div>
