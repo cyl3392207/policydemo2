@@ -20,12 +20,12 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
             RestService.getclient('pd').query({ id: sub.subscriptionId }, function (items) {
                 $scope.loadingpolcy = false
                 items.value.forEach(function (item) {
-                    if (item.properties.policyType == "Custom") {
+                  
                         $scope.assignmentnumbers[item.id] = 0
                         $scope.violationnumbers[item.id] = 0
                         $scope.events[item.id] = []
                         $scope.policies[sub.subscriptionId].push(item)
-                    }
+                
 
                 })
 
@@ -144,4 +144,48 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
         })
     }
 
+}]).controller('PolicyBuilderCtrl', ['$scope', '$modal', 'RestService','$location','$filter', function ($scope, $modal, RestService, $location,$filter) {
+    $('#builder').queryBuilder({
+        plugins: ['not-group', 'sortable'],
+        filters: filters
+    });
+    $scope.generatedpolicy = {}
+    var updatecallback = function (e, rule, error, value) {
+        // never display error for my custom filter
+        var result = $('#builder').queryBuilder('getRules');
+
+        if (!$.isEmptyObject(result)) {
+            $scope.$apply(function () {
+                $scope.generatedpolicy = convertToPolicyDefnitionRule(result);
+            })
+
+        }
+    }
+
+        $('#builder').on('afterUpdateRuleValue.queryBuilder', updatecallback);
+        $('#builder').on('afterUpdateGroupCondition.queryBuilder', updatecallback);
+        $('#builder').on('afterApplyRuleFlags.queryBuilder', updatecallback);
+        $('#builder').on('afterUpdateRuleFilter.queryBuilder', updatecallback);
+        $('#builder').on('afterUpdateRuleOperator.queryBuilder', updatecallback);
+        $('#builder').on('afterMove.queryBuilder', updatecallback);
+        $('#builder').on('AfterChangeNot.queryBuilder', updatecallback);
+    $scope.test = function (result){
+        $scope.generatedpolicy = convertToPolicyDefnitionRule(result);
+    }
+
+    $scope.a = function () {
+        var result = $('#builder').queryBuilder('getRules');
+
+        if (!$.isEmptyObject(result)) {
+            alert($scope.generatedpolicy)
+        }
+
+    };
+
+
+    $('#btn-set').on('click', function () {
+        $('#builder-plugins').queryBuilder('setRules', rules_plugins);
+    });
+
 }])
+

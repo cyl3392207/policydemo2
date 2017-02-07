@@ -194,9 +194,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\Print.css" />
+    <Content Include="Content\query-builder.default.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\ui-grid.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="ApplicationInsights.config">
@@ -219,7 +221,19 @@
     <Content Include="Scripts\app\directives.js" />
     <Content Include="Scripts\app\filters.js" />
     <Content Include="Scripts\app\modalcontrollers.js" />
+    <Content Include="Scripts\app\policybuilder.js" />
     <Content Include="Scripts\app\services.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\shared\alasql.min.js" />
     <Content Include="Scripts\shared\angular-cookies.min.js" />
     <Content Include="Scripts\shared\angular-locale_zh-cn.js" />
@@ -272,6 +286,7 @@
     <Content Include="Content\less\bootstrap-datetimepicker-build.less" />
     <Content Include="Content\less\_bootstrap-datetimepicker.less" />
     <None Include="Properties\PublishProfiles\policydemo.pubxml" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\shared\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\shared\jquery-1.10.2.js" />
     <Content Include="Scripts\shared\jquery-1.10.2.min.js" />
@@ -289,6 +304,7 @@
     <Content Include="Scripts\shared\moment.js" />
     <Content Include="Scripts\shared\moment.min.js" />
     <Content Include="Scripts\shared\npm.js" />
+    <Content Include="Scripts\shared\query-builder.standalone.js" />
     <Content Include="Scripts\shared\respond.js" />
     <Content Include="Scripts\shared\respond.min.js" />
     <Content Include="Scripts\shared\ui-bootstrap-tpls-0.12.1.min.js" />
