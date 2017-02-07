@@ -17,7 +17,7 @@ var appmodule = angular.module('ms.site', ['ngCookies','ngRoute', 'ms.site.contr
                     templateUrl: '/pages/policybuilder.html',
                     controller: 'PolicyBuilderCtrl'
                 }).otherwise({
-                    redirectTo: '/policy'
+                    redirectTo: '/policybuilder'
                 })
           }])
 
