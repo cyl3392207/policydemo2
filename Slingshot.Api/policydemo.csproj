@@ -209,6 +209,7 @@
     <Content Include="Pages\gallerymodal.html" />
     <Content Include="Pages\policyassignmentmodal.html" />
     <Content Include="Pages\newpolicymodal.html" />
+    <Content Include="Pages\policybuilder.html" />
     <Content Include="Pages\policylogmodal.html" />
     <Content Include="Pages\policydetailmodal.html" />
     <Content Include="Pages\policydefinitions.html" />
