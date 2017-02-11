@@ -524,7 +524,7 @@
         is_null: { type: 'is_null', nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean'] },
         is_not_null: { type: 'is_not_null', nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean'] },
         like: { type: 'like', nb_inputs: 1, multiple: false, apply_to: ['string'] },
-        exist: { type: 'exist', nb_inputs: 0, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean','tags'] },
+        exists: { type: 'exists', nb_inputs: 1, multiple: false, apply_to: ['string', 'number', 'datetime', 'boolean','tags'] },
         containskey: { type: 'containskey', nb_inputs: 0, multiple: false, apply_to: ['tags'] },
     };
 
@@ -593,7 +593,7 @@
             'is_null',
             'is_not_null',
             'like',
-            'exist',
+            'exists',
             'containskey'
         ],
 

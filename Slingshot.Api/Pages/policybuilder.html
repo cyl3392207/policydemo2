@@ -10,4 +10,33 @@
         <pre>{{ generatedpolicy| json:true}}</pre>
     </div>
 
+    <h1>select an existing policy</h1>
+    <form name="msForm" ng-submit="submit()" class="form-horizontal" novalidate>
+
+        <div class="form-group  has-feedback">
+            <label class="col-sm-1 control-label">Select a subscription</label>
+            <span class="nullable col-sm-5">
+                <select class="form-control col-sm-5"  ng-model="selectedsubId" ng-options="sub.subscriptionId as sub.displayName for sub in subs" required="">
+                    <option value="">--Please Select--</option>
+                </select>
+            </span>
+
+           
+
+            
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Select a policy definition</label>
+            <span class="nullable col-sm-5">
+                <select class="form-control" ng-disabled="!selectedsubId" ng-model="selectedpolicy" ng-options="p as '['+p.properties.policyType+']'+(p.properties.displayName==null?p.name:p.properties.displayName) for p in policies[selectedsubId]" required="">
+                    <option value="">--Please Select--</option>
+                </select>
+            </span>
+           
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary col-sm-2 btn-sm" ng-disabled="!selectedpolicy" ng-click="loadpolicy(selectedpolicy)">Load Policy</button>
+        </div>
+</form>
 </div>

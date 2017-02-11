@@ -10,9 +10,9 @@ appControllers.controller('PolicyDefinitionModal', ['$scope','$modalInstance','d
         $modalInstance.dismiss();
     };
 }]).
-controller('PolicyAssignmentModal', ['$scope', '$modalInstance', 'detail','RestService', function ($scope, $modalInstance, detail,RestService) {
+controller('PolicyAssignmentModal', ['$scope', '$modalInstance', 'detail','sub','RestService', function ($scope, $modalInstance, detail,sub,RestService) {
     $scope.detail = detail
-    var subId = detail.id.substring(15, 51);
+    var subId = sub;
     $scope.assignments = []
     $scope.scopes = []
     $scope.pa = {properties:{policyDefinitionId: detail.id}, name:guid() }

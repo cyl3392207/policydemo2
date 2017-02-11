@@ -57,9 +57,8 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary btn-sm" ng-click="viewJson(p)">View</button>
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewAssignments(p)">Assignments</button>
-                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewLogs(p)">Audit Logs</button>
-                        <button type="button" class="btn btn-danger btn-sm" ng-click="deletepd(p)">Delete</button>
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="viewAssignments(p,s.subscriptionId)">Assignments</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-show="p.properties.policyType!='BuiltIn'" ng-click="deletepd(p)">Delete</button>
                     </td>
                 </tr>
             </tbody>
