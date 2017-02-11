@@ -289,6 +289,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\shared\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\shared\interact.js" />
+    <Content Include="Scripts\shared\jsonpath.js" />
     <Content Include="Scripts\shared\jquery-1.10.2.js" />
     <Content Include="Scripts\shared\jquery-1.10.2.min.js" />
     <None Include="Scripts\shared\jquery.validate-vsdoc.js" />
