@@ -106,12 +106,12 @@ function convertToPolicyDefinition(operator, policydefintion) {
     var policyobject = {}
     var condition = {}
     if (operator.condition == null) {
-        if (operator.value.startsWith("[parameters")) {
+        if (operator.value.toLowerCase().startsWith("[parameters")) {
             policyobject = jQuery.parseJSON(
                '{"field": "' + operator.id + '",\"' + operator.operator + '":"' + operator.value + '" }'
                )
 
-        } else if (operator.value.startsWith("[")) {
+        } else if (operator.value.toLowerCase().startsWith("[")) {
             policyobject = jQuery.parseJSON(
            '{"field": "' + operator.id + '",\"' + operator.operator + '":' + operator.value + ' }'
            )
@@ -124,12 +124,12 @@ function convertToPolicyDefinition(operator, policydefintion) {
 
     }
     else if (operator.rules.length == 1) {
-        if (operator.rules[0].value.startsWith("[parameters")) {
+        if (operator.rules[0].value.toLowerCase().startsWith("[parameters")) {
             policyobject = jQuery.parseJSON(
                '{"field": "' + operator.rules[0].id + '",\"' + operator.rules[0].operator + '":"' + operator.rules[0].value + '" }'
                )
 
-        } else if (operator.rules[0].value.startsWith("[")) {
+        } else if (operator.rules[0].value.toLowerCase().startsWith("[")) {
             policyobject = jQuery.parseJSON(
            '{"field": "' + operator.rules[0].id + '",\"' + operator.rules[0].operator + '":' + operator.rules[0].value + ' }'
            )
