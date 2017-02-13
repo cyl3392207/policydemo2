@@ -104,23 +104,32 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
         filters: filters
     });
     $scope.generatedpolicy = {}
+    $scope.then = {}
+    $scope.result = {}
+    $scope.then.details = []
+    $scope.filters = filters
     var updatecallback = function (e, rule, error, value) {
-        try {
-        // never display error for my custom filter
-        var result = $('#builder').queryBuilder('getRules');
-
-        if (!$.isEmptyObject(result) ) {
-           
+        $scope.result = $('#builder').queryBuilder('getRules');
+        if (!$.isEmptyObject($scope.result)) {
             $scope.$applyAsync(function () {
-                    $scope.generatedpolicy = convertToPolicyDefnitionRule(result);
+                $scope.generatedpolicy = convertToPolicyDefnitionRule($scope.result, $scope.then);
                 })
-          
-           
-
             }
-        } catch (e) {
-            alert(e)
         }
+    $scope.addtoappend = function () {
+        var array = /\[[^parameter]*\]/
+        var object = /\{*\}/
+        var isarrayorobject = array.exec($scope.valuetoadd) != null || object.exec($scope.valuetoadd)!=null
+        var arrayvalue = null
+        try{
+            $scope.then.details.push({ field: $scope.fieldtoadd, value: isarrayorobject? JSON.parse($scope.valuetoadd) : $scope.valuetoadd })
+        } catch (err) {
+            alert("invalid charactor in " + $scope.valuetoadd)
+        }
+        $scope.fieldtoadd = $scope.valuetoadd = null
+    }
+    $scope.resetappend = function () {
+        $scope.then.details = []
     }
 
     $('#builder').on('afterUpdateRuleValue.queryBuilder', updatecallback);
@@ -132,19 +141,23 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
     $('#builder').on('AfterChangeNot.queryBuilder', updatecallback);
 
     $scope.loadpolicy = function (p) {
-
-        var rules = convertToRules(p.properties.policyRule)
+        var policyrule = p.properties.policyRule
+        var rules = convertToRules(policyrule)
+        $scope.then.effect = policyrule.then.effect.toLowerCase()
+        $scope.then.details = policyrule.then.details
         var fields = jsonPath(p.properties.policyRule, "$..field")
 
         for (k in fields) {
-            if ($.inArray(fields[k], filters) == -1) {
-                try{
-                    $('#builder').queryBuilder('addFilter', {
+            if ($.inArray(fields[k], $scope.filters) == -1) {
+                try {
+                    var newfilter = {
                         id: fields[k].toLowerCase(),
                         label: fields[k],
                         type: 'string',
                         operators: operators
-                    });
+                    }
+                    $('#builder').queryBuilder('addFilter', newfilter);
+                    $scope.filters.push(newfilter)
                 } catch (ee) {
 
                 }

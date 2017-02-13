@@ -90,10 +90,10 @@ for (var k in aliases) {
 
 
 
-function convertToPolicyDefnitionRule(operator) {
+function convertToPolicyDefnitionRule(operator,then) {
     var policydefintion = {}
     policydefintion.if = convertToPolicyDefinition(operator)
-    policydefintion.then = { effect: "deny" }
+    policydefintion.then = then
     return policydefintion
 }
 
