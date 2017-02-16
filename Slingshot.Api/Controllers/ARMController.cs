@@ -52,6 +52,7 @@ namespace Slingshot.Controllers
             sm_providerMap = providerMap;
         }
 
+
         [Authorize]
         public HttpResponseMessage GetToken(bool plainText = false)
         {

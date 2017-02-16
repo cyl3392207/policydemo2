@@ -106,6 +106,7 @@ appServices.factory('Constants', ['$resource','$filter',
       //https://msdn.microsoft.com/en-us/library/azure/dn931934.aspx
       clients['events'] = $resource('/api/subscriptions/:id/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=:filter', { id: '@id', filter: 'filter' }, { 'update': { method: 'PUT' }, 'query': { isArray: false, headers: {'Accept':'application/json'} } })
       clients['rg'] = $resource('/api/subscriptions/:id/resourceGroups/:name?api-version=2015-11-01', { id: '@id', name: '@name' }, { 'update': { method: 'PUT' }, 'query': { isArray: false } })
+      clients['userinfo'] = $resource('api/token', {} ,{ 'update': { method: 'PUT' }, 'query': { isArray: false } })
       return {
           getclient: function(resoucename){
               return clients[resoucename]

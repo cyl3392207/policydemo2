@@ -173,9 +173,18 @@ appControllers.controller('PolicyCtrl', ['$scope', '$modal', 'RestService','$loc
 
 }])
 
+function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+};
 function Initialize($scope, $modal, RestService, $location, $filter) {
     RestService.getclient('subscription').query(function (items) {
         $scope.subs = items.value
+        RestService.getclient('userinfo').query(function (user) {
+            appInsights.setAuthenticatedUserContext(user.upn)
+        })
+      
         $scope.policies = []
         $scope.assignmentnumbers = []
         $scope.violationnumbers = []

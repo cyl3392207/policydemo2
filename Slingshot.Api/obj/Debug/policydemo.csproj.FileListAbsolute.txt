@@ -129,3 +129,5 @@ C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\obj\Debug\policydemo.
 C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\obj\Debug\policydemo.csprojResolveAssemblyReference.cache
 C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\obj\Debug\Slingshot.Api.dll
 C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\obj\Debug\Slingshot.Api.pdb
+C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\bin\Microsoft.Graph.Core.dll
+C:\Users\mikech\Documents\GitHub\policydemo2\Slingshot.Api\bin\Microsoft.Graph.dll

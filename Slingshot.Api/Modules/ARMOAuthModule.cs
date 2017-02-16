@@ -65,7 +65,7 @@ namespace Slingshot.Modules
                 return;
             }
 
-            string tenantId;
+            string tenantId;    
             if (SwitchTenant(application, out tenantId))
             {
                 RemoveSessionCookie(application);
@@ -73,7 +73,7 @@ namespace Slingshot.Modules
                 var loginUrl = GetLoginUrl(application, tenantId, "/token");
                 response.Redirect(loginUrl, endResponse: true);
                 return;
-            }
+            }   
 
             var id_token = request.Form["id_token"];
             var code = request.Form["code"];
