@@ -29,7 +29,7 @@ namespace Slingshot.Modules
 
         public static string AADClientSecret
         {
-            get { return "BH9E+WXrzHv35f8ISQowie70C6Bzcs4+NeIZD2eMZrc="; }
+            get { return "ocjvFdcQZ1ZncsPRjEDvneONznlg89vZoK39QkYhbhA="; }
         }
 
 
